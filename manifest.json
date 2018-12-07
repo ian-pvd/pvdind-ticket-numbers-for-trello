@@ -13,7 +13,8 @@
 			"matches": [
 				"https://trello.com/b/*"
 			],
-			"css": ["index.css"]
+			"css": ["index.css"],
+			"js": ["index.js"]
 		}
 	]
 }
