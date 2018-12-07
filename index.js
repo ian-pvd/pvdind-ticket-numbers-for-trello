@@ -5,10 +5,13 @@
 // Get the Trello board
 const board = document.getElementById('board');
 
-// Get the card IDs from the board
-Array
-  .from(board.querySelectorAll('.list-card'))
-  .forEach(card => formatIdNumber(card));
+// If the board was selected
+if (board != null) {
+  // Get the card IDs from the board
+  Array
+    .from(board.querySelectorAll('.list-card'))
+    .forEach(card => formatIdNumber(card));
+}
 
 // Formats the card ID number
 function formatIdNumber(card) {
