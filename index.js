@@ -2,15 +2,32 @@
  * Ticket Number for Trello JS
  */
 
-// Get the Trello board
-const board = document.getElementById('board');
+// Get Trello Board
+getBoard().then(() => {
+  // Get the board(?)
+  const board = document.getElementById('board');
 
-// If the board was selected
-if (board != null) {
+  console.log('then, format numbers...');
   // Get the card IDs from the board
   Array
-    .from(board.querySelectorAll('.list-card'))
-    .forEach(card => formatIdNumber(card));
+      .from(board.querySelectorAll('.list-card'))
+      .forEach(card => formatIdNumber(card));
+});
+
+// Wait for the Trello board to load
+async function getBoard() {
+  console.log('Checking for the board.');
+  // Check for the board:
+  while (document.getElementById('board') === null) {
+    console.log('waiting for the board to load:' + document.getElementById('board'));
+    // Wait for board to load
+    await new Promise(resolve => {
+      requestAnimationFrame(resolve);
+    });
+  }
+  console.log('board has loaded');
+  // Board has loaded
+  return true;
 }
 
 // Formats the card ID number
