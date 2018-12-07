@@ -1,0 +1,7 @@
+/**
+ * Ticket Number for Trello styles
+ */
+
+.card-short-id.hide {
+	display: block;
+}

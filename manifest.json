@@ -1,0 +1,18 @@
+/**
+ * Manifest
+ */
+
+{
+	"name": "Ticket Numbers for Trello",
+	"manifest_version": 2,
+	"version": "0",
+	"description": "Surfaces the Short ID for Trello cards with some simple CSS.",
+	"content_scripts": [
+		{
+			"matches": [
+				"https://trello.com/b/*"
+			],
+			"css": ["index.css"]
+		}
+	]
+}
