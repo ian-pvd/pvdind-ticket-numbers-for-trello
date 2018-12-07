@@ -3,19 +3,20 @@
  */
 
 // Get Trello Board
-getBoard().then(() => {
+waitForTheBoard().then(() => {
   // Get the board(?)
   const board = document.getElementById('board');
+  console.log(board);
 
   console.log('then, format numbers...');
   // Get the card IDs from the board
   Array
-      .from(board.querySelectorAll('.list-card'))
-      .forEach(card => formatIdNumber(card));
+    .from(board.querySelectorAll('.list-card'))
+    .forEach(card => formatIdNumber(card));
 });
 
 // Wait for the Trello board to load
-async function getBoard() {
+async function waitForTheBoard() {
   console.log('Checking for the board.');
   // Check for the board:
   while (document.getElementById('board') === null) {
@@ -34,6 +35,7 @@ async function getBoard() {
 function formatIdNumber(card) {
   // Get the card ID for each card
   const cardId = card.getElementsByClassName('card-short-id');
+  // console.log('formatting: ' + ('#' + ((cardId[0].textContent).replace('#','')).padStart(3, '0')));
   // Get the ticket number from the card ID
   let ticketNumber = (cardId[0].textContent);
   // Remove leading '#' character
@@ -44,4 +46,6 @@ function formatIdNumber(card) {
   ticketNumber = '#' + ticketNumber;
   // Update DOM with formatted string
   cardId[0].textContent = ticketNumber;
+  // console.log(cardId);
+  // cardId.dataSet.pvdindTicketNumber = ticketNumber;
 }
