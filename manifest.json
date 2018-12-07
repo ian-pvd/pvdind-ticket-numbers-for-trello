@@ -4,9 +4,10 @@
 
 {
 	"name": "Ticket Numbers for Trello",
+	"author": "PVD Industrial",
 	"manifest_version": 2,
 	"version": "0",
-	"description": "Surfaces the Short ID for Trello cards with some simple CSS.",
+	"description": "Displays the short id number for Trello cards.",
 	"content_scripts": [
 		{
 			"matches": [

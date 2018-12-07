@@ -2,6 +2,18 @@
  * Ticket Number for Trello styles
  */
 
-.card-short-id.hide {
-	display: block;
+.list-card-title {
+  padding-top: 1px;
+}
+
+.list-card-title .card-short-id {
+  background: #DFE3E6;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0 4px 0 0;
+  min-height: 20px;
+  padding: 0 6px 0 4px;
+  transform: translateY(-1px);
 }
