@@ -2,18 +2,27 @@
  * Ticket Number for Trello JS
  */
 
-// Get Trello Board
-waitForTheBoard().then(() => {
-  // Get the board(?)
-  const board = document.getElementById('board');
-  console.log(board);
+/* Load the PageJS Functions */
 
-  console.log('then, format numbers...');
-  // Get the card IDs from the board
-  Array
-    .from(board.querySelectorAll('.list-card'))
-    .forEach(card => formatIdNumber(card));
-});
+updateBoardTicketNumbers();
+
+/* Ticket Number Helpers */
+
+// Update ticket number display on board
+function updateBoardTicketNumbers() {
+  // Wait for, then get Trello Board
+  waitForTheBoard().then(() => {
+    // Get the board(?)
+    const board = document.getElementById('board');
+    console.log(board);
+
+    console.log('then, format numbers...');
+    // Get the card IDs from the board
+    Array
+      .from(board.querySelectorAll('.list-card'))
+      .forEach(card => formatIdNumber(card));
+  });
+}
 
 // Wait for the Trello board to load
 async function waitForTheBoard() {
@@ -34,7 +43,9 @@ async function waitForTheBoard() {
 // Formats the card ID number
 function formatIdNumber(card) {
   // Get the card ID for each card
-  const cardId = card.getElementsByClassName('card-short-id');
+  const cardId = card.querySelectorAll('.card-short-id');
+  cardId[0].classList.remove('hide');
+  // console.log(cardId);
   // console.log('formatting: ' + ('#' + ((cardId[0].textContent).replace('#','')).padStart(3, '0')));
   // Get the ticket number from the card ID
   let ticketNumber = (cardId[0].textContent);
@@ -46,6 +57,6 @@ function formatIdNumber(card) {
   ticketNumber = '#' + ticketNumber;
   // Update DOM with formatted string
   cardId[0].textContent = ticketNumber;
-  // console.log(cardId);
-  // cardId.dataSet.pvdindTicketNumber = ticketNumber;
+  // cardId[0].dataSet.pvdindTicketNumber = ticketNumber;
+  console.log(cardId);
 }
