@@ -19,7 +19,7 @@ function updateBoardTicketNumbers() {
     console.log('then, format numbers...');
     // Get the card IDs from the board
     Array
-      .from(board.querySelectorAll('.list-card'))
+      .from(board.getElementsByClassName('list-card'))
       .forEach(card => formatIdNumber(card));
   });
 }
@@ -43,9 +43,9 @@ async function waitForTheBoard() {
 // Formats the card ID number
 function formatIdNumber(card) {
   // Get the card ID for each card
-  const cardId = card.querySelectorAll('.card-short-id');
+  const cardId = card.getElementsByClassName('card-short-id');
+  console.log('format: ' + cardId);
   cardId[0].classList.remove('hide');
-  // console.log(cardId);
   // console.log('formatting: ' + ('#' + ((cardId[0].textContent).replace('#','')).padStart(3, '0')));
   // Get the ticket number from the card ID
   let ticketNumber = (cardId[0].textContent);
